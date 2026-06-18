@@ -440,6 +440,7 @@
     .carousel-thumb {
       position: relative;
       overflow: hidden;
+      height: 420px;
     }
     .carousel-track {
       display: flex;
@@ -461,7 +462,6 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
-      background: #E0DED6;
       display: block;
       transition: transform 0.5s ease;
     }
@@ -671,7 +671,8 @@
     .project-card:hover { background: white; }
 
     .project-thumb {
-      width: 100%; aspect-ratio: 16/10;
+      width: 100%;
+      height: 420px;
       background: #E0DED6;
       display: flex; align-items: center; justify-content: center;
       overflow: hidden; position: relative;
@@ -680,7 +681,8 @@
 
     .project-thumb img {
       width: 100%; height: 100%;
-      object-fit: cover; display: block;
+      object-fit: contain; display: block;
+      background: #E0DED6;
     }
 
     .project-placeholder {
@@ -1206,13 +1208,11 @@
       </h1>
       <p class="hero-role">Diseño gráfico & UX/UI · Front-End</p>
       <p class="hero-bio">
-        Diseño lo que después construyo.<br><br>
-        Vengo del editorial y la maquetación — casi una década dándole forma a ideas en papel y pantalla. Ahora también escribo el código que las hace funcionar.
+        Diseñadora de formación, desarrolladora por curiosidad. Casi diez años entre tipografías, maquetas y ahora también líneas de código.
       </p>
       <div class="hero-cta">
         <a href="#contact" class="btn btn-primary">▸ Hablemos</a>
-        <a href="#experience" class="btn btn-ghost">Ver trayectoria</a>
-        <a href="cv/CV_Raquel_ES.pdf" download class="btn btn-ghost">↓ Descargar CV</a>
+        <a href="cv/CV_Raquel_ES.pdf" download class="btn btn-ghost">Descargar CV</a>
       </div>
     </div>
   </header>
@@ -1220,7 +1220,7 @@
   <!-- PROJECTS -->
   <section id="projects">
     <div class="section-header reveal">
-      <h2 class="section-title">Diseño &amp; trabajo</h2>
+      <h2 class="section-title">Proyectos</h2>
     </div>
 
     <div class="filter-chips" role="group" aria-label="Filtrar proyectos por categoría">
@@ -1235,12 +1235,12 @@
         <div class="project-thumb carousel-thumb">
           <div class="carousel-track" id="editorial-track">
             <div class="carousel-slide active">
-              <!-- <img src="img/maquetacion-1.jpg" alt="Maquetación 1"> -->
-              <div class="project-placeholder"><p>// maquetacion-1.jpg</p></div>
+              <img src="img/maquetacion-1.jpg" alt="Maquetación 1"> 
+              <div class="project-placeholder"><p></p></div>
             </div>
             <div class="carousel-slide">
-              <!-- <img src="img/maquetacion-2.jpg" alt="Maquetación 2"> -->
-              <div class="project-placeholder"><p>// maquetacion-2.jpg</p></div>
+              <img src="img/maquetacion-2.jpg" alt="Maquetación 2"> 
+              <div class="project-placeholder"><p></p></div>
             </div>
           </div>
           <button class="carousel-btn carousel-prev" data-target="editorial-track" aria-label="Anterior">‹</button>
@@ -1266,12 +1266,12 @@
         <div class="project-thumb carousel-thumb">
           <div class="carousel-track" id="vera-track">
             <div class="carousel-slide active">
-              <!-- <img src="img/vera-poster.jpg" alt="Póster del proyecto Vera"> -->
-              <div class="project-placeholder"><p>// vera-poster.jpg</p></div>
+              <img src="img/vera-poster.jpg" alt="Póster del proyecto Vera">
+              <div class="project-placeholder"><p></p></div>
             </div>
             <div class="carousel-slide">
-              <!-- <img src="img/vera-wireframes.jpg" alt="Wireframes del proyecto Vera"> -->
-              <div class="project-placeholder"><p>// vera-wireframes.jpg</p></div>
+              <img src="img/vera-wireframes.jpg" alt="Wireframes del proyecto Vera"> 
+              <div class="project-placeholder"><p></p></div>
             </div>
           </div>
           <button class="carousel-btn carousel-prev" data-target="vera-track" aria-label="Anterior">‹</button>
@@ -1286,7 +1286,7 @@
             <span class="project-tag">UX/UI</span>
             <span class="project-tag">Figma</span>
           </div>
-          <h3 class="project-title">Vera — app contra la desinformación</h3>
+          <h3 class="project-title">Vera. App contra la desinformación</h3>
           <p class="project-desc">Conceptualización y wireframes de Vera, una plataforma móvil que combina gamificación, verificación colaborativa entre jóvenes y creación de contranarrativas para combatir la desinformación sobre feminismo. Diseñé las seis pantallas principales (onboarding, home, formación gamificada, verificación, creación de contenido y perfil) y el póster de presentación del proyecto.</p>
           <button class="project-readmore" type="button">Leer más</button>
           <div class="project-footer">
@@ -1300,7 +1300,7 @@
           <div class="carousel-track" id="transporte-track">
             <div class="carousel-slide active">
               <img src="img/transporte-wireframes.jpg" alt="Wireframes app de transporte público">
-              <div class="project-placeholder"><p>// transporte-wireframes.jpg</p></div>
+              <div class="project-placeholder"><p></p></div>
             </div>
           </div>
         </div>
@@ -1310,7 +1310,7 @@
             <span class="project-tag">Figma</span>
           </div>
           <h3 class="project-title">App de transporte público</h3>
-          <p class="project-desc">Diseño de interacción completo de una app de transporte público: investigación de usuarios, árbol de contenidos, wireframes y prototipo navegable en Figma. Cerré el proceso con un test de usabilidad presencial que confirmó una navegación clara y aportó mejoras para la siguiente iteración, como añadir un buscador de paradas.</p>
+          <p class="project-desc">Diseño de interacción completo de una app de transporte público: investigación de usuarios, árbol de contenidos, wireframes y prototipo navegable en Figma.</p>
           <button class="project-readmore" type="button">Leer más</button>
           <div class="project-footer">
             <a href="https://www.figma.com/design/ZtpsoYK40HLTBGadLkWmfZ/Wireframes-App-Transporte-P%C3%BAblico-PR-Dise%C3%B1o-de-interacci%C3%B3n?node-id=0-1&p=f" target="_blank" class="project-demo-btn">↗ Ver en Figma</a>
@@ -1345,7 +1345,7 @@
   <!-- SKILLS -->
   <section id="skills">
     <div class="section-header reveal">
-      <h2 class="section-title">Herramientas &amp; skills</h2>
+      <h2 class="section-title">Skills</h2>
     </div>
     <div class="skills-grid">
       <div class="skill-card reveal">
@@ -1379,7 +1379,6 @@
           <span class="skill-tag lvl-medio"><span class="skill-dot"></span>MQTT</span>
           <span class="skill-tag lvl-medio"><span class="skill-dot"></span>InfluxDB</span>
           <span class="skill-tag lvl-principiante"><span class="skill-dot"></span>Power BI</span>
-          <span class="skill-tag lvl-principiante"><span class="skill-dot"></span>Azure</span>
         </div>
       </div>
       <div class="skill-card reveal">
@@ -1462,28 +1461,28 @@
   <!-- EDUCATION -->
   <section id="education">
     <div class="section-header reveal">
-      <h2 class="section-title">Educación</h2>
+      <h2 class="section-title">Formación</h2>
     </div>
     <div class="edu-grid">
-      <div class="edu-card reveal">
-        <p class="edu-year">2025 — 2026</p>
-        <h3>Especialización Transformación Digital &amp; IoT</h3>
-      </div>
       <div class="edu-card reveal">
         <p class="edu-year">2023 — 2027</p>
         <h3>Grado en Multimedia</h3>
       </div>
       <div class="edu-card reveal">
+        <p class="edu-year">2025 — 2026</p>
+        <h3>Curso de especialización en Transformación Digital &amp; IoT</h3>
+      </div>
+      <div class="edu-card reveal">
         <p class="edu-year">2022 — 2024</p>
-        <h3>FP Superior — Desarrollo de Aplicaciones Multiplataforma (DAM)</h3>
+        <h3>FP Superior de Desarrollo de Aplicaciones Multiplataforma (DAM)</h3>
       </div>
       <div class="edu-card reveal">
         <p class="edu-year">2019 — 2022</p>
-        <h3>FP Superior — Desarrollo de Aplicaciones Web (DAW)</h3>
+        <h3>FP Superior de Desarrollo de Aplicaciones Web (DAW)</h3>
       </div>
       <div class="edu-card reveal">
         <p class="edu-year">2013 — 2015</p>
-        <h3>FP Superior — Diseño y Producción Editorial</h3>
+        <h3>FP Superior de Diseño y Producción Editorial</h3>
       </div>
     </div>
   </section>
