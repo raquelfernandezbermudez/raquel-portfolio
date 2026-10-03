@@ -1169,6 +1169,35 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::after, *::before { animation: none !important; transition: none !important; }
     }
+
+        /* ── IMPACTO: proyectos ── */
+    .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
+    .project-card { background: #fff; border: 1px solid var(--rule); transition: box-shadow 0.2s; }
+    .project-card:hover { background: #fff; box-shadow: 0 14px 36px rgba(20, 34, 88, 0.12); }
+    .project-thumb, .project-thumb img { background: #EEF0F7; }
+    .project-thumb, .carousel-thumb { height: 480px; }
+    .project-info { padding: 2rem; gap: 0.8rem; }
+    .project-title { font-family: var(--serif); font-weight: 400; font-size: 1.7rem; line-height: 1.15; }
+    .project-desc { font-size: 0.98rem; }
+    .project-tag { font-size: 0.72rem; padding: 0.2rem 0.55rem; }
+    .project-demo-btn { font-size: 0.78rem; padding: 0.55rem 1rem; }
+
+    /* proyecto destacado */
+    .project-card.featured { grid-column: 1 / -1; flex-direction: row; }
+    .project-card.featured .project-thumb { width: 58%; height: 580px; flex-shrink: 0; border-bottom: none; border-right: 2px solid var(--ink); }
+    .project-card.featured .project-info { padding: 3rem; justify-content: center; }
+    .project-card.featured .project-title { font-size: 2.4rem; }
+
+    @media (max-width: 900px) {
+      .projects-grid { grid-template-columns: 1fr; }
+      .project-card.featured { flex-direction: column; }
+      .project-card.featured .project-thumb { width: 100%; height: 420px; border-right: none; border-bottom: 2px solid var(--ink); }
+      .project-card.featured .project-info { padding: 2rem; }
+      .project-card.featured .project-title { font-size: 1.9rem; }
+    }
+
+    /* hero más corto: que asome el trabajo */
+    #hero { min-height: 72vh; }
   </style>
 </head>
 <body>
@@ -1256,7 +1285,8 @@
             <span class="project-tag">InDesign</span>
           </div>
           <h3 class="project-title">Maquetación editorial</h3>
-          <p class="project-desc">Diseño y maquetación de libros y publicaciones técnicas para Grupo Asís Biomedia, cuidando la calidad visual y tipográfica de cada página.</p>
+          <p class="project-desc">Diseño y maquetación de libros técnicos de veterinaria para Grupo Asís, rejillas, jerarquía tipográfica y guías de estilo que se mantienen coherentes a lo largo de cientos de páginas.</p>
+          <button class="project-readmore" type="button">Leer más</button>
           <div class="project-footer">
           </div>
         </div>
@@ -1266,12 +1296,13 @@
         <div class="project-thumb carousel-thumb">
           <div class="carousel-track" id="vera-track">
             <div class="carousel-slide active">
-              <img src="img/vera-poster.jpg" alt="Póster del proyecto Vera">
-              <div class="project-placeholder"><p></p></div>
+              <img src="img/vera-mockup.png" alt="Las seis pantallas de Vera: bienvenida, inicio, formación gamificada, verificación en comunidad, crear contranarrativa y perfil">
             </div>
             <div class="carousel-slide">
-              <img src="img/vera-wireframes.jpg" alt="Wireframes del proyecto Vera"> 
-              <div class="project-placeholder"><p></p></div>
+              <img src="img/vera-soluciones.jpg" alt="Del problema a la propuesta: el 23 % de chicos adolescentes considera la violencia de género un invento ideológico, qué falla en las soluciones existentes y los cuatro módulos de Vera">
+            </div>
+            <div class="carousel-slide">
+              <img src="img/vera-poster.jpg" alt="Póster de Vera: combatir la desinformación sobre feminismo, con sus tres módulos">
             </div>
           </div>
           <button class="carousel-btn carousel-prev" data-target="vera-track" aria-label="Anterior">‹</button>
@@ -1279,18 +1310,20 @@
           <div class="carousel-dots" data-target="vera-track">
             <button class="carousel-dot active" data-index="0" aria-label="Imagen 1"></button>
             <button class="carousel-dot" data-index="1" aria-label="Imagen 2"></button>
+            <button class="carousel-dot" data-index="2" aria-label="Imagen 3"></button>
           </div>
         </div>
         <div class="project-info">
           <div class="project-tags">
+            <span class="project-tag">Investigación</span>
             <span class="project-tag">UX/UI</span>
             <span class="project-tag">Figma</span>
           </div>
-          <h3 class="project-title">Vera. App contra la desinformación</h3>
-          <p class="project-desc">Conceptualización y wireframes de Vera, una plataforma móvil que combina gamificación, verificación colaborativa entre jóvenes y creación de contranarrativas para combatir la desinformación sobre feminismo. Diseñé las seis pantallas principales (onboarding, home, formación gamificada, verificación, creación de contenido y perfil) y el póster de presentación del proyecto.</p>
+          <h3 class="project-title">Vera · App contra la desinformación</h3>
+          <p class="project-desc">Plataforma móvil de alfabetización mediática para que jóvenes de 14 a 25 años detecten y combatan la desinformación sobre feminismo. Antes de diseñar analicé las soluciones existentes (verificadores como Maldita o Newtral, proyectos educativos, ciberactivismo y herramientas de detección) y vi que ninguna combinaba lo educativo, lo social y lo tecnológico. Vera une los tres en tres módulos: formación gamificada con retos que simulan posts reales, verificación colaborativa entre jóvenes supervisada por verificadores acreditados y un editor para crear contranarrativas con datos verificados.</p>
           <button class="project-readmore" type="button">Leer más</button>
           <div class="project-footer">
-            <a href="https://www.figma.com/design/k0NQDDjUANWwyiwSezDlrK/PEC4-%E2%80%93-Wireframes-Vera--Copy-?node-id=0-1" target="_blank" class="project-demo-btn">↗ Ver en Figma</a>
+            <a href="https://www.figma.com/design/k0NQDDjUANWwyiwSezDlrK/PEC4-%E2%80%93-Wireframes-Vera--Copy-?node-id=0-1" target="_blank" rel="noopener" class="project-demo-btn">Ver en Figma</a>
           </div>
         </div>
       </div>
@@ -1299,40 +1332,94 @@
         <div class="project-thumb carousel-thumb">
           <div class="carousel-track" id="transporte-track">
             <div class="carousel-slide active">
-              <img src="img/transporte-wireframes.jpg" alt="Wireframes app de transporte público">
-              <div class="project-placeholder"><p></p></div>
+              <img src="img/transporte-wireframes.png" alt="Tres móviles con los wireframes de información de líneas, cómo llegar y título de transporte">
             </div>
+            <div class="carousel-slide">
+              <img src="img/transporte-proceso.jpg" alt="Proceso completo del proyecto: pregunta de investigación y cuatro fases, investigación y modelado, arquitectura de información, prototipo y evaluación">
+            </div>
+            <div class="carousel-slide">
+              <img src="img/transporte-hallazgos.jpg" alt="Hallazgos de la investigación: tres de seis pidieron información en tiempo real, tres de seis no usan apps para rutas y dos de seis encontraron barreras de accesibilidad, junto a las dos user personas">
+            </div>
+          </div>
+          <button class="carousel-btn carousel-prev" data-target="transporte-track" aria-label="Anterior">‹</button>
+          <button class="carousel-btn carousel-next" data-target="transporte-track" aria-label="Siguiente">›</button>
+          <div class="carousel-dots" data-target="transporte-track">
+            <button class="carousel-dot active" data-index="0" aria-label="Imagen 1"></button>
+            <button class="carousel-dot" data-index="1" aria-label="Imagen 2"></button>
+            <button class="carousel-dot" data-index="2" aria-label="Imagen 3"></button>
           </div>
         </div>
         <div class="project-info">
           <div class="project-tags">
             <span class="project-tag">UX Research</span>
-            <span class="project-tag">Figma</span>
+            <span class="project-tag">Arquitectura de información</span>
+            <span class="project-tag">Prototipo baja fidelidad</span>
           </div>
-          <h3 class="project-title">App de transporte público</h3>
-          <p class="project-desc">Diseño de interacción completo de una app de transporte público: investigación de usuarios, árbol de contenidos, wireframes y prototipo navegable en Figma.</p>
+          <h3 class="project-title">App de transporte público · Wireframes</h3>
+          <p class="project-desc">Diseño de interacción de una app para el transporte urbano de Zaragoza: seis entrevistas, dos user personas, card sorting, árbol de contenidos y prototipo navegable de baja fidelidad en Figma. Al prototipar reorganicé la estructura: «Planificación de viaje» pasó a ser «Cómo llegar», con los resultados sobre un mapa, y añadí un título de transporte tipo wallet para pagar desde el móvil. El test de usabilidad reveló la falta de un buscador de paradas, la primera mejora de la siguiente iteración.</p>
           <button class="project-readmore" type="button">Leer más</button>
           <div class="project-footer">
-            <a href="https://www.figma.com/design/ZtpsoYK40HLTBGadLkWmfZ/Wireframes-App-Transporte-P%C3%BAblico-PR-Dise%C3%B1o-de-interacci%C3%B3n?node-id=0-1&p=f" target="_blank" class="project-demo-btn">↗ Ver en Figma</a>
+            <a href="https://www.figma.com/proto/ZtpsoYK40HLTBGadLkWmfZ/Wireframes-App-Transporte-P%C3%BAblico-PR-Dise%C3%B1o-de-interacci%C3%B3n?node-id=1-2&amp;starting-point-node-id=1%3A2&amp;scaling=scale-down" target="_blank" rel="noopener" class="project-demo-btn">Ver en Figma</a>
           </div>
         </div>
       </div>
 
       <div class="project-card reveal" data-category="graphic">
         <div class="project-thumb carousel-thumb">
-          <div class="carousel-track" id="cuerpos-track">
+          <div class="carousel-track" id="social-track">
             <div class="carousel-slide active">
-              <img src="img/cuerpos-mutilados.jpg" alt="Infografía Cuerpos Mutilados">
+              <img src="img/social-objective-portada.jpg" alt="Portada del manual de identidad de Social Objective, con el símbolo del ojo y la llama sobre fondo amarillo">
+            </div>
+            <div class="carousel-slide">
+              <img src="img/social-objective-identificador.jpg" alt="Identificador de Social Objective en sus versiones horizontal y vertical">
+            </div>
+            <div class="carousel-slide">
+              <img src="img/social-objective-aplicaciones.jpg" alt="Aplicaciones de la identidad: entrada, acreditación de prensa, bolsa y camiseta">
+            </div>
+            <div class="carousel-slide">
+              <img src="img/cuerpos-mutilados.jpg" alt="Infografía sobre la mutilación genital femenina con mapa de prevalencia por país">
+            </div>
+          </div>
+          <button class="carousel-btn carousel-prev" data-target="social-track" aria-label="Anterior">‹</button>
+          <button class="carousel-btn carousel-next" data-target="social-track" aria-label="Siguiente">›</button>
+          <div class="carousel-dots" data-target="social-track">
+            <button class="carousel-dot active" data-index="0" aria-label="Imagen 1"></button>
+            <button class="carousel-dot" data-index="1" aria-label="Imagen 2"></button>
+            <button class="carousel-dot" data-index="2" aria-label="Imagen 3"></button>
+            <button class="carousel-dot" data-index="3" aria-label="Imagen 4"></button>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-tags">
+            <span class="project-tag">Identidad visual</span>
+            <span class="project-tag">Infografía</span>
+            <span class="project-tag">Illustrator</span>
+          </div>
+          <h3 class="project-title">Social Objective</h3>
+          <p class="project-desc">Identidad para una plataforma de fotografía social y activismo. El símbolo une el visor de una cámara, un ojo y una llama: una mirada que no solo ve, sino que denuncia. Aplicada en entrada, acreditación de prensa, bolsa, camiseta y una infografía donde la paleta de la marca codifica los datos.</p>
+          <button class="project-readmore" type="button">Leer más</button>
+          <div class="project-footer">
+            <a href="pdf/SocialObj_Manual.pdf" target="_blank" rel="noopener" class="project-demo-btn">Ver manual completo</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal" data-category="graphic">
+        <div class="project-thumb carousel-thumb">
+          <div class="carousel-track" id="infancias-track">
+            <div class="carousel-slide active">
+              <img src="img/infancias-robadas-stories-mockup.png" alt="Tres móviles mostrando la secuencia de stories de Infancias robadas sobre el matrimonio infantil">
             </div>
           </div>
         </div>
         <div class="project-info">
           <div class="project-tags">
-            <span class="project-tag">Infografía</span>
-            <span class="project-tag">InDesign</span>
+            <span class="project-tag">Tipografía</span>
+            <span class="project-tag">Redes sociales</span>
+            <span class="project-tag">Illustrator</span>
           </div>
-          <h3 class="project-title">Cuerpos mutilados</h3>
-          <p class="project-desc">Infografía sobre la mutilación genital femenina, con datos de UNICEF y WHO, que combina distribución geográfica y evolución histórica de la práctica en los últimos treinta años. Aplico un libro de estilo gráfico propio (tipografía, color y jerarquía visual) para tratar un tema sensible con rigor informativo y sin caer en el sensacionalismo.</p>
+          <h3 class="project-title">Infancias robadas</h3>
+          <p class="project-desc">Campaña de stories para visibilizar el matrimonio infantil. Parte del trabajo de la fotoperiodista Stephanie Sinclair: su fotografía se reparte entre las tres pantallas y se revela al avanzar, como la realidad que la campaña quiere mostrar. La secuencia lleva de la emoción a la acción: una cita de la autora, una pregunta que interpela al espectador y la invitación a la exposición.</p>
           <button class="project-readmore" type="button">Leer más</button>
           <div class="project-footer">
           </div>
@@ -1401,8 +1488,8 @@
 
       <div class="exp-item reveal">
         <div class="exp-date">
-          Sept 2025 — Actualidad
-          <div class="exp-current"><div class="exp-dot"></div> Activo</div>
+          Sept 2025 — Julio 2026
+          <!-- <div class="exp-current"><div class="exp-dot"></div> Activo</div>-->
         </div>
         <div class="exp-body">
           <h3>Desarrolladora IoT</h3>
@@ -1498,19 +1585,17 @@
     </div>
     <div class="contact-right">
       <div class="contact-links">
-        <a href="mailto:rmfernandezbermudez@gmail.com" class="contact-link">
+        <div class="contact-link">
           <div>
             <p class="contact-link-label">Email</p>
             <p class="contact-link-value">rmfernandezbermudez@gmail.com</p>
           </div>
-          <span class="contact-arrow">→</span>
-        </a>
+        </div>
         <a href="https://www.linkedin.com/in/raquelfernandezbermudez/" target="_blank" class="contact-link">
           <div>
             <p class="contact-link-label">LinkedIn</p>
             <p class="contact-link-value">linkedin.com/in/raquelfernandez</p>
           </div>
-          <span class="contact-arrow">→</span>
         </a>
       </div>
     </div>
