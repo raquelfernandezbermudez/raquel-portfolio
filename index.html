@@ -6,6 +6,7 @@
   <title>Raquel Fernández — Diseño & Desarrollo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=DM+Serif+Display&family=Inter:wght@300;400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=Press+Start+2P&family=DM+Serif+Display&family=Inter:wght@300;400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #F4F3EE;
@@ -253,7 +254,8 @@
       color: var(--muted);
       max-width: 58ch;
       line-height: 1.9;
-      margin-bottom: 3.5rem;
+      margin-bottom: 3rem;
+      margin-top: 1.5rem;
       border-left: 3px solid var(--blue);
       padding-left: 1.4rem;
     }
@@ -1198,6 +1200,111 @@
 
     /* hero más corto: que asome el trabajo */
     #hero { min-height: 72vh; }
+
+    /* ── HERO en dos columnas ── */
+    #hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 3rem;
+      padding: calc(var(--nav-h) + 2rem) 6vw 3rem;
+    }
+    .hero-left { margin: 0; padding: 0; max-width: 620px; }
+
+    /* ── FOTO: del boceto a la foto ── */
+    .hero-photo {
+      position: relative;
+      z-index: 1;
+      justify-self: center;
+      width: min(380px, 80%);
+      margin: 0;
+      transform: rotate(-2.5deg);
+      transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .hero-photo-frame { position: relative; padding: 18px; }
+    .hero-photo-pic {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      border: 10px solid #fff;
+      background: #EEF0F4;
+      box-shadow: 0 24px 50px rgba(20, 34, 88, 0.25);
+      transition: box-shadow 0.5s ease;
+      overflow: hidden;
+    }
+    .hero-photo-pic img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-photo-pic .pic-real { opacity: 0; transition: opacity 0.6s ease; }
+    .hero-photo figcaption {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+      margin: 0.4rem 18px 0;
+    }
+    .crop {
+      position: absolute;
+      width: 26px; height: 26px;
+      border: 0 solid var(--blue);
+      transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .crop-tl { top: 0; left: 0; border-top-width: 2px; border-left-width: 2px; }
+    .crop-tr { top: 0; right: 0; border-top-width: 2px; border-right-width: 2px; }
+    .crop-bl { bottom: 0; left: 0; border-bottom-width: 2px; border-left-width: 2px; }
+    .crop-br { bottom: 0; right: 0; border-bottom-width: 2px; border-right-width: 2px; }
+
+    /* ── garabatos: ¡Hola! y subrayado ── */
+    .hero-doodles {
+      position: absolute;
+      top: -60px; left: -60px;
+      width: calc(100% + 120px);
+      height: auto;
+      overflow: visible;
+      pointer-events: none;
+      z-index: 5;
+    }
+    .hero-doodles .d-draw {
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+      transition: stroke-dashoffset 0.6s ease;
+    }
+    .hero-doodles .d-bubble {
+      fill: rgba(255, 255, 255, 0);
+      transition: stroke-dashoffset 0.6s ease, fill 0.3s ease 0.3s;
+    }
+    .hero-doodles .d-text {
+      font-family: 'Kalam', cursive;
+      font-weight: 700;
+      font-size: 42px;
+      fill: var(--accent);
+      opacity: 0;
+      transition: opacity 0.3s ease 0.45s;
+    }
+
+    /* ── al pasar el ratón ── */
+    .hero-photo:hover { transform: rotate(0deg); }
+    .hero-photo:hover .pic-real { opacity: 1; }
+    .hero-photo:hover .hero-photo-pic { box-shadow: 0 30px 60px rgba(20, 34, 88, 0.32); }
+    .hero-photo:hover .d-draw { stroke-dashoffset: 0; }
+    .hero-photo:hover .d-bubble { fill: rgba(255, 255, 255, 0.95); }
+    .hero-photo:hover .d-text { opacity: 1; }
+
+    @media (max-width: 900px) {
+      #hero { grid-template-columns: 1fr; padding: calc(var(--nav-h) + 1.5rem) 1.5rem 2.5rem; }
+      .hero-photo { width: min(300px, 80%); }
+    }
   </style>
 </head>
 <body>
@@ -1222,28 +1329,48 @@
     </ul>
   </nav>
 
+
   <!-- HERO -->
   <header id="hero">
-    <div class="cloud cloud-1"></div>
-    <div class="cloud cloud-2"></div>
-    <div class="cloud cloud-3"></div>
-    <div class="cloud cloud-4"></div>
-    <div class="cloud cloud-5"></div>
-
+    <div class="cloud cloud-1" aria-hidden="true"></div>
+    <div class="cloud cloud-2" aria-hidden="true"></div>
+    <div class="cloud cloud-3" aria-hidden="true"></div>
+    <div class="cloud cloud-4" aria-hidden="true"></div>
+    <div class="cloud cloud-5" aria-hidden="true"></div>
+ 
     <div class="hero-left">
       <h1 class="hero-name">
-        <span>Raquel</span>
-        <span>Fernández</span>
+        <span>Diseño gráfico & UX/UI<span>
+        <span>Front-End</span>
+        <span></span>
       </h1>
-      <p class="hero-role">Diseño gráfico & UX/UI · Front-End</p>
+      
       <p class="hero-bio">
-        Diseñadora de formación, desarrolladora por curiosidad. Casi diez años entre tipografías, maquetas y ahora también líneas de código.
-      </p>
+        Diseñadora por experiencia, desarrolladora por curiosidad. Casi diez años entre tipografías, maquetas y ahora también líneas de código. </p>
       <div class="hero-cta">
-        <a href="#contact" class="btn btn-primary">▸ Hablemos</a>
+        <a href="#projects" class="btn btn-primary">▸ Ver proyectos</a>
         <a href="cv/CV_Raquel_ES.pdf" download class="btn btn-ghost">Descargar CV</a>
       </div>
     </div>
+ 
+    <figure class="hero-photo">
+      <div class="hero-photo-frame">
+        <span class="crop crop-tl" aria-hidden="true"></span>
+        <span class="crop crop-tr" aria-hidden="true"></span>
+        <span class="crop crop-bl" aria-hidden="true"></span>
+        <span class="crop crop-br" aria-hidden="true"></span>
+        <div class="hero-photo-pic">
+          <img class="pic-sketch" src="img/raquel-dibujo.jpg" alt="Retrato de Raquel Fernández dibujado a lápiz">
+          <img class="pic-real" src="img/raquel.jpg" alt="" aria-hidden="true">
+        </div>
+      </div>
+      <figcaption>Fig. 01 — Raquel Fernández</figcaption>
+      <svg class="hero-doodles" viewBox="0 0 500 600" aria-hidden="true">
+        <path class="d-draw d-bubble" pathLength="1" d="M352 30 C 380 14, 452 12, 478 34 C 500 54, 494 90, 466 104 C 446 114, 412 116, 392 110 L 362 136 L 372 104 C 344 94, 330 64, 352 30 Z"/>
+        <text class="d-text" x="414" y="78" text-anchor="middle">¡Hola!</text>
+        <path class="d-draw" pathLength="1" d="M150 560 C 205 552, 295 566, 350 556"/>
+      </svg>
+    </figure>
   </header>
 
   <!-- PROJECTS -->
